@@ -14,10 +14,7 @@ MAINTAINER Heldr Farias
 RUN apt-get update
 
 # Install necessary tools
-RUN apt-get install -y nano wget dialog net-tools
-
-# Download and Install Nginx
-RUN apt-get install -y nginx
+RUN apt-get install -y vim wget dialog net-tools nginx
 
 # Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
