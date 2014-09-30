@@ -9,14 +9,14 @@ FROM ubuntu:14.04
 MAINTAINER Helder Farias
 
 RUN apt-get update
-RUN apt-get install -y vim wget dialog net-tools nginx
+RUN apt-get install -y vim wget dialog net-tools nginx daemontools
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN mkdir           /var/www
-ADD build/default   /etc/nginx/sites-available/default
+ADD default   /etc/nginx/sites-available/default
 RUN mkdir           /etc/service/nginx
-ADD build/nginx.sh  /etc/service/nginx/run
+ADD nginx.sh  /etc/service/nginx/run
 RUN chmod +x        /etc/service/nginx/run
 
 EXPOSE 80

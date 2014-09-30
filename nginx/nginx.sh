@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nginx
+exec /usr/bin/nginx
