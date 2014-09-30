@@ -26,4 +26,4 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 EXPOSE 80
 
 # Set the default command to execute
-CMD["/usr/sbin/nginx"]
+CMD ["/usr/sbin/nginx"]
