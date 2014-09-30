@@ -6,7 +6,7 @@
 FROM ubuntu:14.04
 
 # File Author / Maintainer
-MAINTAINER Heldr Farias
+MAINTAINER Helder Farias
 
 RUN apt-get update
 RUN apt-get install -y vim wget dialog net-tools nginx
@@ -22,3 +22,5 @@ RUN chmod +x        /etc/service/nginx/run
 EXPOSE 80
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENTRYPOINT ["/usr/bin/svscan", "/etc/services/"]
