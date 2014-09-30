@@ -8,19 +8,22 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Heldr Farias
 
-# Install Nginx
-
-# Update the repository
 RUN apt-get update
-
-# Install necessary tools
 RUN apt-get install -y vim wget dialog net-tools nginx
 
-# Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-# Expose ports
+RUN mkdir           /var/www
+ADD build/default   /etc/nginx/sites-available/default
+RUN mkdir           /etc/service/nginx
+ADD build/nginx.sh  /etc/service/nginx/run
+RUN chmod +x        /etc/service/nginx/run
+RUN mkdir           /etc/service/phpfpm
+ADD build/phpfpm.sh /etc/service/phpfpm/run
+RUN chmod +x        /etc/service/phpfpm/run
+
 EXPOSE 80
 
-# Set the default command to execute
 CMD ["/usr/sbin/nginx"]
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

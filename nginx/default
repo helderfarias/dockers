@@ -1,0 +1,24 @@
+server {
+    listen  80;
+
+    root /var/www;
+    index index.html index.htm;
+
+    server_name localhost;
+
+    access_log /var/log/nginx/localhost.com-access.log;
+    error_log  /var/log/nginx/localhost.com-error.log error;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
