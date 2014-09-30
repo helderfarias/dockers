@@ -13,11 +13,14 @@ RUN apt-get install -y vim wget dialog net-tools nginx daemontools
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
-RUN mkdir           /var/www
-ADD default   /etc/nginx/sites-available/default
-RUN mkdir           /etc/service/nginx
-ADD nginx.sh  /etc/service/nginx/run
-RUN chmod +x        /etc/service/nginx/run
+RUN mkdir	/var/www
+RUN mkdir 	/etc/services
+
+ADD default   	/etc/nginx/sites-available/default
+
+RUN mkdir       /etc/service/nginx
+ADD nginx.sh  	/etc/service/nginx/run
+RUN chmod +x    /etc/service/nginx/run
 
 EXPOSE 80
 
