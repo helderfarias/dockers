@@ -19,6 +19,9 @@ ADD ./jenkins.sh /usr/local/bin/jenkins.sh
 RUN chmod +x /usr/local/bin/jenkins.sh
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
+# Install yeoman
+npm install -g yo
+
 # VOLUME /var/jenkins_home
 ENV JENKINS_HOME /var/jenkins_home
 
