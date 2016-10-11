@@ -4,14 +4,14 @@ RUN apt-get update \
     && apt-get -y install libssl1.0.0 --no-install-recommends \
     && apt-get -y install libc6-dev libpcre3-dev libssl-dev \
     && apt-get -y install supervisor \
-    && apt-get -y install curl \
+    && apt-get -y install curl make \
     && rm -rf /var/lib/apt/lists/*
 
 ENV HAPROXY_MAJOR 1.5
 ENV HAPROXY_VERSION 1.5.11
 ENV HAPROXY_MD5 5500a79d0d2b238d4a1e9749bd0c2cb2
 RUN set -x \
-	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
+	&& apt-get update && apt-get install -y gcc $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
 	&& curl -SL "http://www.haproxy.org/download/${HAPROXY_MAJOR}/src/haproxy-${HAPROXY_VERSION}.tar.gz" -o haproxy.tar.gz \
 	&& echo "${HAPROXY_MD5}  haproxy.tar.gz" | md5sum -c \
 	&& mkdir -p /usr/src/haproxy \
