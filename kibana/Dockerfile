@@ -31,7 +31,7 @@ RUN set -x \
 
 RUN rm -rf /etc/kibana
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
-COPY supervisor.conf /etc/supervisor/conf.d/
+COPY supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 COPY entrypoint.sh /entrypoint.sh
 COPY kibana.yml /opt/kibana/config/kibana.yml
 RUN chmod +x /entrypoint.sh
