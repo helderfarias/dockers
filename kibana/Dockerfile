@@ -26,7 +26,8 @@ RUN set -x \
 		install-bin \
 	&& mkdir -p /usr/local/etc/haproxy \
 	&& cp -R /usr/src/haproxy/examples/errorfiles /usr/local/etc/haproxy/errors \
-	&& rm -rf /usr/src/haproxy
+	&& rm -rf /usr/src/haproxy \
+        && apt-get -y purge curl make gcc
 
 RUN rm -rf /etc/kibana
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
