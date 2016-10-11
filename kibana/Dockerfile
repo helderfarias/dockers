@@ -1,9 +1,10 @@
 FROM kibana:4.6.1
 
 RUN apt-get update \
-    && apt-get install -y libssl1.0.0 --no-install-recommends \
-    && apt-get install -y libc6-dev libpcre3-dev libssl-dev \
+    && apt-get -y install libssl1.0.0 --no-install-recommends \
+    && apt-get -y install libc6-dev libpcre3-dev libssl-dev \
     && apt-get -y install supervisor \
+    && apt-get -y install curl \
     && rm -rf /var/lib/apt/lists/*
 
 ENV HAPROXY_MAJOR 1.5
