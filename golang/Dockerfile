@@ -8,6 +8,6 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN apk add --no-cache go git make
 RUN mkdir $GOPATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
-RUN /usr/local/go/bin/bin/go get -u github.com/kardianos/govendor
+RUN go get -u github.com/kardianos/govendor
 
 WORKDIR $GOPATH
