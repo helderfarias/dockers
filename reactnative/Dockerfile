@@ -26,7 +26,7 @@ RUN echo y | android update sdk --no-ui --all --filter android-25
 RUN echo y | android update sdk --no-ui --all --filter android-23
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.0
 RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.1
-RUN echo y | android update sdk --no-ui --all --filter extra-google-m2repository
+RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository
 
 RUN chown -R 1000:1000 $ANDROID_HOME
 
