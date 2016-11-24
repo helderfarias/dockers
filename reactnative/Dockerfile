@@ -9,7 +9,8 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 ENV PATH ${PATH}:/opt/tools
 
-RUN apt-get update && apt-get install -y curl wget
+RUN dpkg --add-architecture i386
+RUN apt-get -qqy update && apt-get -qqy install -y curl wget libncurses5:i386 libstdc++6:i386 zlib1g:i386
 
 RUN cd /opt && wget -q --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u65-b17/jdk-7u65-linux-x64.tar.gz"
 RUN cd /opt && tar xvzf jdk-7u65-linux-x64.tar.gz
