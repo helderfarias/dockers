@@ -1,5 +1,7 @@
 FROM openjdk:7-jdk-alpine
 
+MAINTAINER Helder Farias <helderfarias@gmail.com>
+
 RUN apk add --no-cache curl bash
 
 ENV VERSION=4.2.0
@@ -12,5 +14,7 @@ RUN curl -L https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/$VERS
 VOLUME /flyway/conf
 
 VOLUME /flyway/sql
+
+WORKDIR /flyway
 
 ENTRYPOINT ["sh", "/flyway/flyway"]
