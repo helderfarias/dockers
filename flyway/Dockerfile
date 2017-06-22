@@ -12,9 +12,10 @@ RUN curl -L https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/$VERS
     && mv flyway-$VERSION flyway
 
 VOLUME /flyway/conf
-
 VOLUME /flyway/sql
 
 WORKDIR /flyway
 
-ENTRYPOINT ["sh", "/flyway/flyway"]
+ENV PATH=/flyway:$PATH
+
+CMD ["sh", "/flyway/flyway"]
