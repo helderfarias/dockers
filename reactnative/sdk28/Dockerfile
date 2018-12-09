@@ -16,12 +16,8 @@ RUN cd /opt && rm jdk-8u191-linux-x64.tar.gz
 RUN cd /opt && wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O android-sdk.zip
 RUN cd /opt && unzip android-sdk.zip
 RUN cd /opt && rm -f android-sdk.zip
-RUN echo y | android update sdk --no-ui --all --filter platform-tools
-RUN echo y | android update sdk --no-ui --all --filter android-28
-RUN echo y | android update sdk --no-ui --all --filter build-tools-28.0.0
-RUN echo y | android update sdk --no-ui --all --filter extra-android-support
-RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repository
-
+RUN echo y | bin/sdkmanager "platforms;android-25" "build-tools;28.0.0" "extras;google;m2repository" "extras;android;m2repository"
+RUN echo y | bin/sdkmanager --licenses
 RUN chown -R 1000:1000 $ANDROID_HOME
 
 RUN npm install -g yarn react-native-cli
