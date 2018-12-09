@@ -1,4 +1,4 @@
-FROM docker:17.04.0-alpine
+FROM docker
 
 MAINTAINER Helder Guilherme <helderfarias@gmail.com>
 
