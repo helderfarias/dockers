@@ -24,5 +24,3 @@ RUN echo y | android update sdk --no-ui --all --filter extra-android-m2repositor
 
 RUN chown -R 1000:1000 $ANDROID_HOME
 RUN apt-get clean
-
-VOLUME ["/opt/android-sdk-linux"]
