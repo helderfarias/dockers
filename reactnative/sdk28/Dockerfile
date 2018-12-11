@@ -23,6 +23,7 @@ RUN cd /opt  \
 
 RUN cd /opt && mkdir android-sdk-linux && mv tools android-sdk-linux/
 RUN chown -R 1000:1000 $ANDROID_HOME
+RUN echo y | /opt/android-sdk-linux/tools/bin/sdkmanager --licenses
 
 RUN npm install -g yarn react-native-cli
 
