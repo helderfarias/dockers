@@ -60,4 +60,11 @@ RUN cd ~ && \
     .. && \
     make -j8 && \
     make install && \
-    rm -rf ~/ocv-tmp    
+    rm -rf ~/ocv-tmp
+
+RUN cd ~ && \
+    wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz && \
+    tar xvzf go1.12.5.linux-amd64.tar.gz && \
+    mv go /usr/local && \
+    ln -s /usr/local/go/bin/go /usr/local/bin/go && \
+    rm go1.12.5.linux-amd64.tar.gz
