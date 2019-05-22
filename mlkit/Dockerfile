@@ -69,4 +69,4 @@ RUN cd ~ && \
     ln -s /usr/local/go/bin/go /usr/local/bin/go && \
     rm go1.12.5.linux-amd64.tar.gz
 
-RUN pip install face_recognition
+RUN pip install face_recognition imutils
