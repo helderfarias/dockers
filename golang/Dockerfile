@@ -1,4 +1,4 @@
-FROM golang:1.12-stretch as builder
+FROM golang:1.13-stretch as builder
 LABEL maintainer "Helder Farias <helderfarias@gmail.com>"
 
 RUN apt-get update && apt-get install -y xz-utils && rm -rf /var/lib/apt/lists/*
